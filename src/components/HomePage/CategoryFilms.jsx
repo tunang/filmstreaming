@@ -9,6 +9,7 @@ const CategoryFilms = () => {
     const categoriesUrl = 'https://phimapi.com/v1/api/danh-sach/';
     // console.log(homePageFilms.data.data.items);
     const categories = [
+        { title: 'TV Series', api: 'phim-bo' },
         { title: 'Movies', api: 'phim-le' },
         { title: 'Cartoons', api: 'hoat-hinh' },
         { title: 'TV Shows', api: 'tv-shows' },
@@ -17,8 +18,10 @@ const CategoryFilms = () => {
     console.log(homePageFilms)
     return (<>
         {categories.map((category) => {
+            // {console.log(category.api)}
             return <>
-                <CategoryFilmItem className="rela" title={category.title} api={category.api} />
+
+                <CategoryFilmItem className="relative" title={category.title} api={category.api} />
             </> 
         })}        
     </>);

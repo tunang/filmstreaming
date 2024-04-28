@@ -1,15 +1,14 @@
 import './App.css'
 import Home from './components/HomePage/Home'
-import Aside from './components/aside/Aside'
 import Login from './components/auth/login/Login'
 import Register from './components/auth/register/Register'
 import Header from './components/header/Header'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {Helmet} from 'react-helmet';
-import ShowCategory from './components/ShowCategory/ShowCategory'
+import { Helmet } from 'react-helmet';
 import Index from './components/ShowCategory'
+import WatchPage from './components/WatchPage/WatchPage'
 
 
 
@@ -39,8 +38,10 @@ function App() {
           <Route path='/cartoons' element={<Index />} />
           <Route path='/tv_shows' element={<Index />} />
           <Route path='/tv_series' element={<Index />} />
+          <Route path='/play/:id/:slug' element={<WatchPage />} />
         </Routes>
       </div>
+      
     </Router>
 
   )

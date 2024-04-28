@@ -23,7 +23,7 @@
     }
 
     p{
-        @apply text-[16px];
+        @apply text-[13px] md:text-[16px];
     }
     
 }
