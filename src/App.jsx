@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet';
 import Index from './components/ShowCategory'
 import WatchPage from './components/WatchPage/WatchPage'
+import SearchFilms from './components/SearchFilms/SearchFilms'
 
 
 
@@ -39,6 +40,7 @@ function App() {
           <Route path='/tv_shows' element={<Index />} />
           <Route path='/tv_series' element={<Index />} />
           <Route path='/play/:id/:slug' element={<WatchPage />} />
+          <Route path='/search/:name' element = {<SearchFilms />}/>
         </Routes>
       </div>
       

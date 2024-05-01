@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
-import fetchItems from "../../services/ProductServices";
-import { Link, useFetcher, useNavigate } from "react-router-dom";
-import Pagination from "./Pagination";
-import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Pagination from "../ShowCategory/Pagination";
 
-const ShowCategoryItem = ({title, api}) => {
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+import axios from "axios";
+
+
+const SearchFilmsDetail = ({title, api}) => {
     const navigate = useNavigate();
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -14,16 +15,14 @@ const ShowCategoryItem = ({title, api}) => {
     
     const [films, setFilms] = useState([]);
 
-
     const fetchFilms = async () => {
-        const data = await axios.get(`https://phimapi.com/v1/api/danh-sach/${api}?limit=12&page=${currentPage}`);
+        const data = await axios.get(`https://phimapi.com/v1/api/tim-kiem?keyword=${api}&page=${currentPage}`);
         setFilms(data);
     }
-    
+
     useEffect( () => {
         fetchFilms();
     },[currentPage])
-
 
     const handleClick = (id, slug) => {
         navigate(`/play/${id}/${slug}`)
@@ -45,10 +44,9 @@ const ShowCategoryItem = ({title, api}) => {
         setCurrentPage(pageNumber);
     }
 
-
-    console.log(films);
+    console.log(films)
     return (<>
-        <h1 className="col-start-1 md:col-start-2 col-end-3 md:col-end-6 text-quinary pb-4 border-b-2 border-quinary">{title}</h1>
+        <h1 className="col-start-1 md:col-start-2 col-end-3 md:col-end-6 text-quinary pb-4 border-b-2 border-quinary">Result for: {title}</h1>
         
         {films && films.data && films.data.data && films.data.data.items.map((item, index) => {
             return <div onClick={() => handleClick(item._id, item.slug)} className="relative pb-20 bg-quaternary rounded"> 
@@ -58,20 +56,7 @@ const ShowCategoryItem = ({title, api}) => {
                 <p className="absolute text-[12px] text-black top-[10%] left-[5%] w-fit px-2 rounded bg-quinary">{item.quality}</p>
             </div>
         })}
-
-        <div className="col-span-4">
-            {
-            films
-            && films.data
-            && films.data.data
-            && films.data.data.params    
-            && <Pagination currentPage={currentPage} totalPage={films.data.data.params.totalPages} paginate={paginate} handleDecreaseClick={handleDecreaseClick} handleIncreaseClick={handleIncreaseClick}/>
-            }
-
-        </div>
-    
-        
     </>);
 }
  
-export default ShowCategoryItem;
+export default SearchFilmsDetail;

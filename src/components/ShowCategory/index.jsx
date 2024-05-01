@@ -12,8 +12,6 @@ const Index = () => {
             <Aside />
             
             <ShowCategory />
-            
-            
         </div>
 
     

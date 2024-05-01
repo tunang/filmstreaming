@@ -1,22 +1,21 @@
 import { thunk } from "redux-thunk";
 import { configureStore, applyMiddleware } from "@reduxjs/toolkit";
-import { loginApi } from "../../../../../ecommerce_reactjs/ecommerce_project/src/services/UserService";
-
+import { loginApi } from "../../services/UserServices";
 
 export const handleLoginRedux = (email, password) => {
     return async (dispatch, getState) =>  {
         dispatch({type: 'FETCH_USER_LOGIN'})
 
         let res = await loginApi(email, password);
-
-        if(res && res.token){
-            localStorage.setItem('token', res.token);
+        console.log(res.data);
+        if(res && res.data && res.data.token){
+            localStorage.setItem('token', res.data.token);
             localStorage.setItem('email', email.trim());
             dispatch({type: 'FETCH_USER_SUCCESS'})
             
         }
         else{
-            if(res && res.status === 400){
+            if(res && res.data && res.data.status === 400){
                 console.log('Co loi');
 
             }

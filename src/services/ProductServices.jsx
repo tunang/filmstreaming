@@ -21,7 +21,7 @@ const fetchItems = (url) => {
 
     useEffect(() => {
         getItems();
-    }, [])
+    }, [url])
     
     return {data, loading, error};
 }
