@@ -25,6 +25,8 @@
     p{
         @apply text-[13px] md:text-[16px];
     }
+
+    
     
 }
 
@@ -40,5 +42,11 @@
     .auth-input{
         @apply w-full bg-quinary p-2 px-4;
     }
+
+    .active{
+        @apply bg-tertiary;
+    }
+
+
     
 }

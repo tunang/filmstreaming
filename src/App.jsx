@@ -10,6 +10,7 @@ import { Helmet } from 'react-helmet';
 import Index from './components/ShowCategory'
 import WatchPage from './components/WatchPage/WatchPage'
 import SearchFilms from './components/SearchFilms/SearchFilms'
+import Favorite from './components/favorite/Favorite'
 
 
 
@@ -41,6 +42,7 @@ function App() {
           <Route path='/tv_series' element={<Index />} />
           <Route path='/play/:id/:slug' element={<WatchPage />} />
           <Route path='/search/:name' element = {<SearchFilms />}/>
+          <Route path='/favorite' element = {<Favorite />}/>
         </Routes>
       </div>
       

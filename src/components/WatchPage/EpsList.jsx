@@ -4,7 +4,7 @@ const EpsList = ({eps,currentEp, handleSetCurrentEp}) => {
         <h2 className="text-quinary border-b-2 border-quinary">Episodes</h2>
         <div className="grid grid-cols-5 pt-4 text-center">
             {eps.data.episodes[0].server_data.map((ep, index) => {
-                return <p onClick={() => handleSetCurrentEp(index)} className="text-center text-quinary leading-6 w-14 mr-1 mt-2 rounded border-2 border-quinary overflow-hidden cursor-pointer hover:bg-tertiary " key={index}>{index + 1}</p>
+                return <p onClick={() => handleSetCurrentEp(index)} className={`text-center text-quinary leading-6 w-14 mr-1 mt-2 rounded border-2 border-quinary overflow-hidden cursor-pointer hover:bg-tertiary ${currentEp === (index) ? 'active' : ''}`} key={index}>{index + 1}</p>
             })}
         </div> 
 

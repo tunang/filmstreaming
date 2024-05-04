@@ -27,6 +27,7 @@ const Header = () => {
     
     return ( <div className='w-full h-24 grid grid-cols-3 items-center content-center justify-items-center bg-secondary'>
         <img onClick={() => handleLogo()} className='relative h-28 pt-2 scale-[2.4] cursor-pointer' src={logo} alt="" />
+        
         <div>
             <CiSearch onClick={() => handleSearchButton()} className='absolute h-12 w-12 scale-50 cursor-pointer'  />
             <input  

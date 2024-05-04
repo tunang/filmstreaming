@@ -29,9 +29,9 @@ const Home = () => {
         <div className='absolute w-full grid grid-cols-5 gap-5 mt-32 px-12 z-1'>
             <Aside />
 
-            <div className="relative col-span-4 transition-all">
-                <Banner />
-            </div>
+            
+            <Banner />
+            
 
 
             <CategoryFilms />

@@ -95,6 +95,8 @@ const Login = () => {
         <div>
             <p className="text-white">After logged in, token and email are saved in localstorage and redux state, use console to check</p>
             <p className="text-white">Email: eve.holt@reqres.in</p>
+            <p className="text-white">Password: anything</p>
+            <p className="text-white">Api: https://reqres.in/</p>
         </div>
 
 

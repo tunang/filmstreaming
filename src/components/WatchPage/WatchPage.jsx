@@ -7,7 +7,7 @@ import EpsList from "./EpsList";
 const WatchPage = () => {
     const { id } = useParams();
     const { slug } = useParams();
-
+    
 
     const [currentEp, setCurrentEp] = useState(0);
     const { data } = fetchItems(`https://phimapi.com/phim/${slug}`)
