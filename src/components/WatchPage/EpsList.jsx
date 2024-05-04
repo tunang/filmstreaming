@@ -1,6 +1,6 @@
 const EpsList = ({eps,currentEp, handleSetCurrentEp}) => {
     // console.log(eps.data.episodes[currentEp].server_data[currentEp].index);
-    return (<div className="col-start-6 col-end-8  ">
+    return (<div className="col-start-1 md:col-start-6 col-end-9 md:col-end-8  ">
         <h2 className="text-quinary border-b-2 border-quinary">Episodes</h2>
         <div className="grid grid-cols-5 pt-4 text-center">
             {eps.data.episodes[0].server_data.map((ep, index) => {

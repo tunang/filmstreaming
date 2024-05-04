@@ -7,19 +7,19 @@
     }
 
     h1{
-        @apply text-5xl font-bold;
+        @apply md:text-5xl text-[40px]  font-bold;
     }
 
     h2{
-        @apply text-[40px] font-bold;
+        @apply md:text-[40px] text-[32px] font-bold;
     }
 
     h3{
-        @apply text-[32px];
+        @apply md:text-[32px] text-2xl ;
     }
 
     h4{
-        @apply text-2xl font-bold;
+        @apply md:text-2xl text-[20px] font-bold;
     }
 
     p{
@@ -50,6 +50,14 @@
     .loading{
         @apply bg-primary rounded
     }
+
+    .aside-desktop{
+        @apply block row-start-1 row-end-10 border-r-[1px] border-quinary
+    }
+
+    /* .aside-mobile{
+        @apply absolute h-screen bg-black px-6 z-[3];
+    } */
 
 
     

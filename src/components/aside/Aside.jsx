@@ -11,22 +11,26 @@ const Aside = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    const isAsideOpening = useSelector(state => state.asideStatus);
+
     const asideTitles = [
         {
             title: 'Browse',
             items: [
                 { label: 'Home', icon: <IoHomeOutline />, active: false, action: () => {navigate('/')} },
-                { label: 'New release', icon: <MdOutlineAddBox />, active: false, action: () => {navigate('/new_release')} },
+                // { label: 'New release', icon: <MdOutlineAddBox />, active: false, action: () => {navigate('/new_release')} },
+                { label: 'Favorite', icon: <TiHeartOutline />, active: false, action: () => {navigate('/favorite')} },
+                { label: 'Watching', icon: <IoEarOutline />, active: false, action: () => {navigate('/watching')} },
             ]
         },
     
-        {
-            title: 'Library',
-            items: [
-                { label: 'Watching', icon: <IoEarOutline />, active: false, action: () => {navigate('/watching')} },
-                { label: 'Favorite', icon: <TiHeartOutline />, active: false, action: () => {navigate('/favorite')} },
-            ]
-        },
+        // {
+        //     title: 'Library',
+        //     items: [
+        //         { label: 'Watching', icon: <IoEarOutline />, active: false, action: () => {navigate('/watching')} },
+        //         { label: 'Favorite', icon: <TiHeartOutline />, active: false, action: () => {navigate('/favorite')} },
+        //     ]
+        // },
     
         {
             title: 'Category',
@@ -46,9 +50,9 @@ const Aside = () => {
             ]
         },
     ];
-
+    // ${isAsideOpening ? 'fixed' : ''}
     return (
-        <aside className='md:block hidden row-start-1 row-end-10 border-r-[1px] border-quinary'>
+        <aside className={`${isAsideOpening ? 'fixed' : 'hidden'} h-screen bg-black px-6 z-[3] md:aside-desktop`}>
             {asideTitles.map((asideTitle, index) => {
                 return <ul className="mt-6 first-of-type:mt-0" key={index}>
                     <h3 className="font-semibold text-quinary">{asideTitle.title}</h3>

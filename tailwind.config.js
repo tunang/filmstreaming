@@ -18,6 +18,22 @@ export default {
         quinary: '#D9D9D9'
       }
     },
+
+    // theme: {
+    //   screens: {
+    //     'sm': '730px',
+    //     // => @media (min-width: 576px) { ... }
+  
+    //     'md': '960px',
+    //     // => @media (min-width: 960px) { ... }
+  
+    //     'lg': '1440px',
+    //     // => @media (min-width: 1440px) { ... }
+    //   },
+    // }
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
+  
 }
