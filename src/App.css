@@ -47,6 +47,10 @@
         @apply bg-tertiary;
     }
 
+    .loading{
+        @apply bg-primary rounded
+    }
+
 
     
 }

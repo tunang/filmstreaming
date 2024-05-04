@@ -30,7 +30,7 @@ const Home = () => {
             <Aside />
 
             
-            <Banner />
+            <Banner/>
             
 
 
