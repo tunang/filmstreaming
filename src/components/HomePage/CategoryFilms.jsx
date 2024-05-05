@@ -22,7 +22,7 @@ const CategoryFilms = () => {
     return (<>
         {categories.map((category) => {
             // {console.log(category.api)}
-            return <div className="col-span-4 scrollbar-thumb-sky-700 scrollbar-track-sky-300">
+            return <div className="col-span-4 md:col-span-3 lg:col-span-4 scrollbar-thumb-sky-700 scrollbar-track-sky-300">
                 
                     <CategoryFilmItem className="relative" title={category.title} api={category.api} action={category.action} />
                 

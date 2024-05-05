@@ -5,6 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    // screens: {
+     
+
+    //   'md': '760px',
+      
+
+      
+    // },
+
+
     extend: {
       fontFamily:{
         poppins: ['Poppins', 'sans-serif'],
@@ -19,18 +29,7 @@ export default {
       }
     },
 
-    // theme: {
-    //   screens: {
-    //     'sm': '730px',
-    //     // => @media (min-width: 576px) { ... }
-  
-    //     'md': '960px',
-    //     // => @media (min-width: 960px) { ... }
-  
-    //     'lg': '1440px',
-    //     // => @media (min-width: 1440px) { ... }
-    //   },
-    // }
+    
   },
   plugins: [
     require('tailwind-scrollbar'),

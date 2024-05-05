@@ -6,12 +6,15 @@ import { RiSlideshow3Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { handleLogoutRedux } from "../../redux/action/userAction";
+import { useEffect } from "react";
 
 const Aside = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const isAsideOpening = useSelector(state => state.asideStatus);
+
+    
 
     const asideTitles = [
         {
@@ -50,9 +53,11 @@ const Aside = () => {
             ]
         },
     ];
-    // ${isAsideOpening ? 'fixed' : ''}
+    
+    
+
     return (
-        <aside className={`${isAsideOpening ? 'fixed' : 'hidden'} h-screen bg-black px-6 z-[3] md:aside-desktop`}>
+        <aside className={`${isAsideOpening ? 'fixed' : 'hidden'} top-24 px-6 pt-6 h-screen bg-black z-[3] md:aside-desktop`}>
             {asideTitles.map((asideTitle, index) => {
                 return <ul className="mt-6 first-of-type:mt-0" key={index}>
                     <h3 className="font-semibold text-quinary">{asideTitle.title}</h3>
