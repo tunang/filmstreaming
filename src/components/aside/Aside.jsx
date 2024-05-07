@@ -1,6 +1,8 @@
 import { IoEarOutline, IoHomeOutline, IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineAddBox, MdOutlineLocalMovies, MdPlayCircleOutline, MdLogout } from "react-icons/md";
 import { TiHeartOutline } from "react-icons/ti";
+import { CgProfile } from "react-icons/cg";
+
 import { BiVideoRecording } from "react-icons/bi";
 import { RiSlideshow3Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +16,10 @@ const Aside = () => {
 
     const isAsideOpening = useSelector(state => state.asideStatus);
 
+    const user = useSelector(state => state.user.account)
+    const handleLoginButton = () => {
+        navigate('/login');
+    }
     
 
     const asideTitles = [
@@ -57,7 +63,15 @@ const Aside = () => {
     
 
     return (
-        <aside className={`${isAsideOpening ? 'fixed' : 'hidden'} top-20 md:top-24 px-6 pt-6 h-screen bg-black z-[3] md:aside-desktop`}>
+        <aside className={`${isAsideOpening ? 'fixed' : 'hidden'} top-24 px-6 h-screen bg-black z-[3] md:aside-desktop`}>
+            <div onClick={() => handleLoginButton()} className='md:hidden md:relative h-10 bg-quinary rounded-full mb-4'>
+            <h4 className='absolute text-tertiary leading-[40px] w-32 text-center'>{
+                user && user.auth ?
+                'name'
+                : 'Log in' }</h4>
+            {/* <CgProfile className='block absolute right-0 h-12 w-16 text-primary cursor-pointer'/> */}
+        </div>
+
             {asideTitles.map((asideTitle, index) => {
                 return <ul className="mt-6 first-of-type:mt-0" key={index}>
                     <h3 className="font-semibold text-quinary">{asideTitle.title}</h3>

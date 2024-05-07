@@ -22,10 +22,11 @@ const CategoryFilms = () => {
     return (<>
         {categories.map((category) => {
             // {console.log(category.api)}
-            return <div className="col-span-4 md:col-span-3 lg:col-span-4 scrollbar-thumb-sky-700 scrollbar-track-sky-300">
+            return <div className="relative col-span-4 md:col-span-3 lg:col-span-4 scrollbar-thumb-sky-700 scrollbar-track-sky-300">
                 
                     <CategoryFilmItem className="relative" title={category.title} api={category.api} action={category.action} />
-                
+                    <FaChevronLeft onClick={(e) => handleLeft(e)} className="absolute h-[250px] md:h-[48px] w-[48px] top-[50%]  left-3 p-2  bg-secondary text-white drop-shadow-[0px_0px_15px_rgba(0,0,0,1) cursor-pointer rounded-full" />
+                    <FaChevronRight onClick={(e) => handleRight(e)} className="absolute h-[250px] md:h-[48px]  w-[48px] top-[50%] right-3 p-2 bg-secondary text-white drop-shadow-[0px_0px_15px_rgba(0,0,0,1) cursor-pointer rounded-full" />  
             </div> 
         })}        
     </>);

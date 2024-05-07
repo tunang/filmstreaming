@@ -38,17 +38,17 @@ const Header = () => {
             <h2 onClick={() => handleLogo()} className='text-quinary md:hidden'>Name</h2>
         </div>
         
-        <div className='hidden md:block'>
-            <CiSearch onClick={() => handleSearchButton()} className='absolute h-12 w-12 scale-50 cursor-pointer'  />
+        <div className='absolute right-3 md:relative'>
+            <CiSearch onClick={() => handleSearchButton()} className='absolute h-10 md:h-12 w-12 scale-50 cursor-pointer'  />
             <input  
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
-            className='md:w-64 lg:w-96 h-12 bg-quinary rounded-full px-12' 
+            className='w-40 md:w-64 lg:w-96 h-10 md:h-12 bg-quinary rounded-xl pl-12' 
             type="text" 
             placeholder='Search here'/>
         </div>
         
-        <div onClick={() => handleLoginButton()} className='relative h-12 md:w-44 md:bg-quinary rounded-full'>
+        <div onClick={() => handleLoginButton()} className='hidden md:block md:relative h-12 md:w-44 md:bg-quinary rounded-full'>
             <h4 className='hidden md:block md:absolute text-tertiary leading-[48px] w-32 text-center '>{
                 user && user.auth ?
                 'name'

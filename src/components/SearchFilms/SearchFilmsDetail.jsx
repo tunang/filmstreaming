@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import Pagination from "../ShowCategory/Pagination";
 
 import 'react-toastify/dist/ReactToastify.css';
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+
+
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
 
@@ -57,7 +60,7 @@ const SearchFilmsDetail = ({title, api}) => {
         && films.data.data.items.length === 0 ? <p className="text-quinary">No result</p> : ''
         }
 
-        {loading ? <p className="text-quinary">Loading... Please wait</p> : '' }
+        {loading ? <p className="text-quinary"><AiOutlineLoading3Quarters className="inline-block animate-spin mr-5" />Loading... Please wait</p> : '' }
         {/* {films.data.data.items.length === 0 ? <p className="text-quinary">No Result</p> : '' } */}
     </>);
 }
