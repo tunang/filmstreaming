@@ -31,7 +31,7 @@ const Header = () => {
         navigate(`/search/${searchInput}`)
     }
     
-    return ( <div className='w-full h-24 grid grid-cols-2 md:grid-cols-3 items-center content-center justify-items-center  bg-secondary cursor-pointer'>
+    return ( <div className='w-full h-20 md:h-24 grid grid-cols-2 md:grid-cols-3 items-center content-center md:justify-items-center  bg-secondary cursor-pointer'>
         <div className='flex items-center'>
             <img onClick={() => handleLogo()} className='hidden md:block h-28 pt-2 scale-[2.4] cursor-pointer' src={logo} alt="" />
             <RiMenuLine onClick={() => dispatch(handleHamburgerMenuButton())} className='text-quinary md:hidden h-6 w-10 scale-[120%]'/>
@@ -48,12 +48,12 @@ const Header = () => {
             placeholder='Search here'/>
         </div>
         
-        <div onClick={() => handleLoginButton()} className='relative h-12 w-44 bg-quinary rounded-full'>
-            <h4 className='absolute text-tertiary leading-[48px] w-32 text-center '>{
+        <div onClick={() => handleLoginButton()} className='relative h-12 md:w-44 md:bg-quinary rounded-full'>
+            <h4 className='hidden md:block md:absolute text-tertiary leading-[48px] w-32 text-center '>{
                 user && user.auth ?
                 'name'
                 : 'Log in' }</h4>
-            <CgProfile className='absolute right-0 h-12 w-16 text-primary cursor-pointer'/>
+            <CgProfile className='absolute right-0 h-12 w-16 text-quinary md:text-primary cursor-pointer'/>
         </div>
 
     </div> );

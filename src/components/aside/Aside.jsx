@@ -57,7 +57,7 @@ const Aside = () => {
     
 
     return (
-        <aside className={`${isAsideOpening ? 'fixed' : 'hidden'} top-24 px-6 pt-6 h-screen bg-black z-[3] md:aside-desktop`}>
+        <aside className={`${isAsideOpening ? 'fixed' : 'hidden'} top-20 md:top-24 px-6 pt-6 h-screen bg-black z-[3] md:aside-desktop`}>
             {asideTitles.map((asideTitle, index) => {
                 return <ul className="mt-6 first-of-type:mt-0" key={index}>
                     <h3 className="font-semibold text-quinary">{asideTitle.title}</h3>
