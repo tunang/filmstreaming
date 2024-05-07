@@ -73,7 +73,7 @@ const ShowCategoryItem = ({title, api}) => {
                     <img className={`w-full h-full overflow-hidden object-cover rounded-t-[4px]`} src={`https://img.phimapi.com/${item.poster_url}`} key={item._id} alt="" loading="lazy"/>
                     <p className="absolute px-4 py-2 w-full text-white lg:text-xl font-normal whitespace-nowrap overflow-hidden text-ellipsis">{item.origin_name}</p>
                     <p className="absolute text-quinary top-[5%] left-[5%] w-fit px-2 rounded bg-tertiary">{item.year}</p>
-                    <p className="absolute text-[12px] text-black top-[13%] md:top-[11.5%] lg:top-[10%] left-[5%] w-fit px-2 rounded bg-quinary">{item.quality}</p>
+                    <p className="absolute text-[12px] text-black top-[15%] md:top-[12.5%] lg:top-[10%] left-[5%] w-fit px-2 rounded bg-quinary">{item.quality}</p>
                     <FaRegHeart onClick={(e) => {handleHeartButton(item,e )}} className="absolute text-quinary top-[5%] right-[5%] w-fit h-9 px-2 rounded cursor-pointer"/>
                 </div>
             })}
