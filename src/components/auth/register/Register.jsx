@@ -15,7 +15,7 @@ const Register = () => {
     }
 
 
-    return ( <div className="absolute w-full grid grid-cols-3 mt-32 z-1">
+    return ( <div className="absolute w-full grid grid-cols-3 mt-24 md:mt-32 z-1">
     <div className="col-start-1 md:col-start-2 col-end-4 md:col-end-3 text-center">
         <div className="mb-6">
             <h1 className=" text-white">Register</h1>

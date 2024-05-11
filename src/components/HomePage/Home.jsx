@@ -25,15 +25,21 @@ const Home = () => {
 
     
 
-    return (
-        <div className='absolute w-full grid md:grid-cols-4 lg:grid-cols-5 gap-5 mt-24 md:mt-32 px-4 lg:px-12 z-1'>
-            <Aside />
-
-            <Banner/>
+    return (<>
+   
+   <Banner/>
             
             <CategoryFilms />
+    </>
+        // <div className='absolute w-full grid md:grid-cols-4 lg:grid-cols-5 gap-5 mt-24 md:mt-32 px-4 lg:px-12 z-1'>
+            
+        //     <Aside /> 
+            
+        //     <Banner/>
+            
+        //     <CategoryFilms />
 
-        </div>
+        // </div>
 
 
     );

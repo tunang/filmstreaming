@@ -43,7 +43,7 @@ const Login = () => {
             }
         },[account])
 
-    return (<div className="absolute w-full grid grid-cols-3 mt-32 z-1">
+    return (<div className="absolute w-full grid grid-cols-3 mt-24 md:mt-32 z-1">
         <div className="col-start-1 md:col-start-2 col-end-4 md:col-end-3 text-center">
             <div className="mb-6">
                 <h1 className=" text-white">Login</h1>
@@ -93,10 +93,10 @@ const Login = () => {
         </div>
 
         <div>
-            <p className="text-white">After logged in, token and email are saved in localstorage and redux state, use console to check</p>
+            {/* <p className="text-white">After logged in, token and email are saved in localstorage and redux state, use console to check</p>
             <p className="text-white">Email: eve.holt@reqres.in</p>
             <p className="text-white">Password: anything</p>
-            <p className="text-white">Api: https://reqres.in/</p>
+            <p className="text-white">Api: https://reqres.in/</p> */}
         </div>
 
 

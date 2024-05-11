@@ -3,6 +3,7 @@ import { useState } from "react";
 import fetchItems from "../../services/ProductServices";
 import Iframe from 'react-iframe'
 import EpsList from "./EpsList";
+import Aside from "../aside/Aside";
 
 const WatchPage = () => {
     const { id } = useParams();

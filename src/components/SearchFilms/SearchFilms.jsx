@@ -9,11 +9,9 @@ const SearchFilms = () => {
     console.log(name);
 
 
-    return (<div className='absolute w-full grid grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-5 mt-24 md:mt-32 px-4 md:px-12 z-1'>
-        <Aside />
-
+    return (<>
         <SearchFilmsDetail title={name} api={name} />
-    </div>);
+    </>);
 }
 
 export default SearchFilms;
