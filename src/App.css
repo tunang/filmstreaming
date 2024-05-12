@@ -52,7 +52,7 @@
     }
 
     .aside-desktop{
-        @apply block row-start-1 row-end-6 border-r-[1px] border-quinary px-0 pt-0
+        @apply block static row-start-1 row-end-6 border-r-[1px] border-quinary px-0 pt-0
     }
 
     /* .aside-mobile{

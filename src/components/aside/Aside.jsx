@@ -63,7 +63,7 @@ const Aside = () => {
     
 
     return (
-        <aside className={`${isAsideOpening ? 'fixed' : 'hidden'} top-20 px-6 h-screen pt-6 bg-black z-[3] md:aside-desktop`}>
+        <aside className={`${isAsideOpening ? 'block' : 'hidden'} fixed top-20 px-6 h-screen pt-6 bg-black z-[3] md:aside-desktop`}>
             <div onClick={() => handleLoginButton()} className='md:hidden md:relative h-10 bg-quinary rounded-full mb-4'>
             <h4 className='absolute text-tertiary leading-[40px] w-32 text-center'>{
                 user && user.auth ?

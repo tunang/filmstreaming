@@ -21,7 +21,6 @@ const CategoryFilmItem = ({ title, api, action }) => {
     };
 
     const handleLeft = () => {
-        console.log(1);
         inputElement.current?.scrollBy({ left: -300 });
     };
     
