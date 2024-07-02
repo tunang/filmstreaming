@@ -1,12 +1,17 @@
 import './App.css'
+
 import Home from './components/HomePage/Home'
 import Login from './components/auth/login/Login'
 import Register from './components/auth/register/Register'
 import Header from './components/header/Header'
+
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom'
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 import { Helmet } from 'react-helmet';
+
 import Index from './components/ShowCategory'
 import WatchPage from './components/WatchPage/WatchPage'
 import SearchFilms from './components/SearchFilms/SearchFilms'
@@ -35,7 +40,6 @@ const NoAsideLayout = () => (
       </header>
       <div className='block md:hidden'>
         <Aside />
-
       </div>
       <Outlet />
     </div>

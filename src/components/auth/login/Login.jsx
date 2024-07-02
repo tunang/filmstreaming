@@ -87,7 +87,6 @@ const Login = () => {
             <div className="w-3/4 text-right mt-4 mx-auto">
                 <p className="text-quinary"><Link className="hover:border-b-[1px] border-inherit">Forgot password?</Link></p>
                 <p className="text-quinary mt-2">No account?<Link to={'/register'} className="text-quaternary hover:border-b-[1px] border-quaternary mt-2"> Create here</Link></p>
-
             </div>
 
         </div>

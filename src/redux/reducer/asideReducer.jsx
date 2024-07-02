@@ -1,4 +1,4 @@
-const INITIAL_STATE = false;
+const INITIAL_STATE = true;
 
 export const asideReducer = (state = INITIAL_STATE, action) =>{
     switch(action.type){

@@ -30,11 +30,15 @@ const Header = () => {
     const handleSearchButton = () => {
         navigate(`/search/${searchInput}`)
     }
+
+    const handleAsideButton =() => {
+        dispatch(handleHamburgerMenuButton());
+    }
     
-    return ( <div className='w-full h-20 md:h-24 grid grid-cols-2 md:grid-cols-3 items-center content-center md:justify-items-center  bg-secondary cursor-pointer'>
+    return ( <div className='w-full h-20 md:h-24 grid grid-cols-2 md:grid-cols-3 items-center content-center md:justify-items-center bg-secondary cursor-pointer'>
         <div className='flex items-center'>
             <img onClick={() => handleLogo()} className='hidden md:block h-28 pt-2 scale-[2.4] cursor-pointer' src={logo} alt="" />
-            <RiMenuLine onClick={() => dispatch(handleHamburgerMenuButton())} className='text-quinary md:hidden h-6 w-10 scale-[120%]'/>
+            <RiMenuLine onClick={() => handleAsideButton()} className='text-quinary md:hidden h-6 w-10 scale-[120%]'/>
             <h2 onClick={() => handleLogo()} className='text-quinary md:hidden'>Name</h2>
         </div>
         

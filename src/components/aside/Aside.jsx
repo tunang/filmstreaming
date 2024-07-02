@@ -1,7 +1,7 @@
 import { IoEarOutline, IoHomeOutline, IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineAddBox, MdOutlineLocalMovies, MdPlayCircleOutline, MdLogout } from "react-icons/md";
 import { TiHeartOutline } from "react-icons/ti";
-import { CgProfile } from "react-icons/cg";
+import { CgCheck, CgProfile } from "react-icons/cg";
 
 import { BiVideoRecording } from "react-icons/bi";
 import { RiSlideshow3Line } from "react-icons/ri";
@@ -9,18 +9,12 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { handleLogoutRedux } from "../../redux/action/userAction";
 import { useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
 
 const Aside = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-    const isAsideOpening = useSelector(state => state.asideStatus);
-
-    const user = useSelector(state => state.user.account)
-    const handleLoginButton = () => {
-        navigate('/login');
-    }
-    
 
     const asideTitles = [
         {
@@ -59,31 +53,68 @@ const Aside = () => {
             ]
         },
     ];
-    
-    
 
+
+    const isAsideOpening = useSelector(state => state.asideStatus);
+    const user = useSelector(state => state.user.account)
+
+    const handleLoginButton = () => {
+        navigate('/login');
+    }
+
+    const asideVariants = {
+        hidden:{
+            x: '-100vw',
+            opacity: 0
+        },
+
+        visible:{
+            x: 0,
+            opacity: 1,
+            transition:{
+                duration: 0.65,
+                type: 'spring',
+                bounce: 0.1,
+            }
+        }
+    }
+    
+    
+    // {`${isAsideOpening ? 'block' : 'hidden'}
     return (
-        <aside className={`${isAsideOpening ? 'block' : 'hidden'} fixed top-20 px-6 h-screen pt-6 bg-black z-[3] md:aside-desktop`}>
-            <div onClick={() => handleLoginButton()} className='md:hidden md:relative h-10 bg-quinary rounded-full mb-4'>
-            <h4 className='absolute text-tertiary leading-[40px] w-32 text-center'>{
-                user && user.auth ?
-                'name'
-                : 'Log in' }</h4>
-            {/* <CgProfile className='block absolute right-0 h-12 w-16 text-primary cursor-pointer'/> */}
-        </div>
-
-            {asideTitles.map((asideTitle, index) => {
-                return <ul className="mt-6 first-of-type:mt-0" key={index}>
-                    <h3 className="font-semibold text-quinary">{asideTitle.title}</h3>
-                    {asideTitle.items.map((item) => {
-                        return <li onClick={item.action} className="flex items-center mt-1 last:mb-4 cursor-pointer ">
-                            <p className="text-quinary text-xl">{item.icon}</p>
-                            <p className="text-quinary text-xl ml-2 hover:text-quaternary">{item.label}</p>
-                        </li>
+        <>
+        <AnimatePresence>
+            {isAsideOpening && 
+                <motion.aside 
+                    variants={asideVariants}
+                    initial='hidden'
+                    animate='visible'
+                    exit='hidden'
+                
+                className={`fixed top-20 px-6 h-screen pt-6 bg-black z-[3] md:aside-desktop`}>
+                    <div onClick={() => handleLoginButton()} className='md:hidden md:relative h-10 bg-quinary rounded-full mb-4'>
+                    <h4 className='absolute text-tertiary leading-[40px] w-32 text-center'>{
+                        user && user.auth ?
+                        'name'
+                        : 'Log in' }</h4>
+                    {/* <CgProfile className='block absolute right-0 h-12 w-16 text-primary cursor-pointer'/> */}
+                </div>
+        
+                    {asideTitles.map((asideTitle, index) => {
+                        return <ul className="mt-6 first-of-type:mt-0" key={index}>
+                            <h3 className="font-semibold text-quinary">{asideTitle.title}</h3>
+                            {asideTitle.items.map((item) => {
+                                return <li onClick={item.action} className="flex items-center mt-1 last:mb-4 cursor-pointer ">
+                                    <p className="text-quinary text-xl">{item.icon}</p>
+                                    <p className="text-quinary text-xl ml-2 hover:text-quaternary">{item.label}</p>
+                                </li>
+                            })}
+                        </ul>
                     })}
-                </ul>
-            })}
-        </aside>
+                </motion.aside>
+            }
+        </AnimatePresence>
+        </>
     );
 }
 
