@@ -17,24 +17,30 @@ import WatchPage from './components/WatchPage/WatchPage'
 import SearchFilms from './components/SearchFilms/SearchFilms'
 import Favorite from './components/favorite/Favorite'
 import Aside from './components/aside/Aside'
+import { setupAxiosInterceptors } from './services/axios/customAxiosWithHeader'
+import Watching from './components/Watching/Watching'
+import Footer from './components/Footer/Footer'
 
 
 
 const AppLayout = () => (
   <>
-    <div className='absolute w-full grid md:grid-cols-4 lg:grid-cols-5 gap-5 mt-24 md:mt-32 px-4 lg:px-12 z-1'>
+    <div className='w-full grid md:grid-cols-4 lg:grid-cols-5 gap-5 mt-24 md:mt-32 px-4 lg:px-12 z-1'>
       <header className='fixed w-full top-0 z-10'>
         <Header />
       </header>
       <Aside />
       <Outlet />
     </div>
+      <div className='col-span-5'>
+        <Footer />
+      </div>
   </>
 );
 
 const NoAsideLayout = () => (
-  <>
-    <div className='absolute w-full grid md:grid-cols-4 lg:grid-cols-5 gap-5 z-1'>
+  <div>
+    <div className='w-full grid md:grid-cols-4 lg:grid-cols-5 gap-5 z-1'>
       <header className='fixed w-full top-0 z-10'>
         <Header />
       </header>
@@ -43,16 +49,13 @@ const NoAsideLayout = () => (
       </div>
       <Outlet />
     </div>
-    <div className='h-20 w-12'>
-
-    </div>
-  </>
+  </div>
 );
 
 
 
 function App() {
-
+  setupAxiosInterceptors();
   return (
     <>
       <Router>
@@ -76,6 +79,7 @@ function App() {
               <Route path='/tv_series' element={<Index />} />
               <Route path='/search/:name' element={<SearchFilms />} />
               <Route path='/favorite' element={<Favorite />} />
+              <Route path='/watching' element={<Watching />} />
             </Route>
 
             <Route element={<NoAsideLayout />}>

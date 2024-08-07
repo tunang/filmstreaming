@@ -11,6 +11,8 @@ import { FaRegHeart } from "react-icons/fa6";
 
 import { useDispatch } from "react-redux";
 import { handleFavButtonRedux } from "../../redux/action/favoriteAction";
+import { updateFavoriteList } from "../../services/FavoriteFilmsServices";
+import { updateWatchingList } from "../../services/WatchingFilmsServices";
 
 const ShowCategoryItem = ({ title, api }) => {
     const navigate = useNavigate();
@@ -33,11 +35,11 @@ const ShowCategoryItem = ({ title, api }) => {
 
     useEffect(() => {
         fetchFilms();
-
     }, [currentPage])
 
 
-    const handleClick = (id, slug) => {
+    const handleClick = (item, id, slug) => {
+        updateWatchingList(item);
         navigate(`/play/${id}/${slug}`)
     }
 
@@ -57,7 +59,8 @@ const ShowCategoryItem = ({ title, api }) => {
         if (event && event.stopPropagation) {
             event.stopPropagation();
         }
-        dispatch(handleFavButtonRedux(film));
+        updateFavoriteList(film)
+        
     }
 
 
@@ -70,8 +73,8 @@ const ShowCategoryItem = ({ title, api }) => {
         {loading ? <p className="text-quinary"><AiOutlineLoading3Quarters className="inline-block animate-spin mr-5" />Loading... Please wait</p> : ''}
 
         <div className={`col-span-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 `}>
-            {films && films.data && films.data.data && films.data.data.items.map((item, index) => {
-                return <div onClick={() => handleClick(item._id, item.slug)} className={`relative h-[220px] md:h-[300px] lg:h-[600px] pb-10 lg:pb-20 bg-quaternary rounded ${loading ? 'animate-pulse' : ''}`}>
+            { films?.data?.data?.items?.map((item, index) => {
+                return <div onClick={() => handleClick(item, item._id, item.slug)} className={`relative h-[220px] md:h-[300px] lg:h-[600px] pb-10 lg:pb-20 bg-quaternary rounded ${loading ? 'animate-pulse' : ''}`}>
                     <img className={`w-full h-full overflow-hidden object-cover rounded-t-[4px]`} src={`https://img.phimapi.com/${item.poster_url}`} key={item._id} alt="" loading="lazy" />
                     <p className="absolute px-4 py-2 w-full text-white lg:text-xl font-normal whitespace-nowrap overflow-hidden text-ellipsis">{item.origin_name}</p>
                     <p className="absolute text-quinary top-[5%] left-[5%] w-fit px-2 rounded bg-tertiary">{item.year}</p>

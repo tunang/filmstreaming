@@ -1,4 +1,9 @@
+import { createSlice } from "@reduxjs/toolkit";
+
 const INITIAL_STATE = [];
+
+
+
 
 const favoriteReducer = (state = INITIAL_STATE, action) => {
     const film = action.payload;

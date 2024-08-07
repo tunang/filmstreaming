@@ -1,10 +1,17 @@
-const INITIAL_STATE = true;
+import { createSlice } from "@reduxjs/toolkit";
 
-export const asideReducer = (state = INITIAL_STATE, action) =>{
-    switch(action.type){
-        case 'CLICK':
+const INITIAL_STATE = false;
+
+const asideReducer = createSlice({
+    name: 'asideStatus',
+    initialState: false,
+    reducers:{
+        changeAsideStatus: (state, action) => {
             return !state;
-        default:
-            return state;
+        }
     }
-}
+})
+
+export const { changeAsideStatus } = asideReducer.actions;
+
+export default asideReducer.reducer;

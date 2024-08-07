@@ -7,6 +7,7 @@ import { handleLoginRedux } from "../../../redux/action/userAction";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from "react";
+import { fetchUser } from "../../../redux/reducer/userReducer";
 
 
 
@@ -16,13 +17,11 @@ const Login = () => {
     const dispatch = useDispatch();
 
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('test@gmail.com');
+    const [password, setPassword] = useState('tuan');
     const [isLogin, setIsLogin] = useState(false);
 
     const account = useSelector(state => state.user.account);
-
-
 
 
     const handleLoginButton = async () => {
@@ -34,7 +33,8 @@ const Login = () => {
             toast.error("Email/ Password is required!");
             return;
         }
-        dispatch(handleLoginRedux(email, password));
+        
+        dispatch(fetchUser({email, password}));
 ;    }
 
         useEffect(() => {

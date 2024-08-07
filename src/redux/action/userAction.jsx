@@ -8,16 +8,15 @@ export const handleLoginRedux = (email, password) => {
 
         let res = await loginApi(email, password);
         console.log(res.data);
-        if(res && res.data && res.data.token){
-            localStorage.setItem('token', res.data.token);
-            localStorage.setItem('email', email.trim());
+        if(res.data.tokens){
+            localStorage.setItem('AccessToken', res.data.tokens.accessToken);
+            localStorage.setItem('RefreshToken', res.data.tokens.refreshToken);
             dispatch({type: 'FETCH_USER_SUCCESS'})
             
         }
         else{
             if(res && res.data && res.data.status === 400){
                 console.log('Co loi');
-
             }
             dispatch({type: 'FETCH_USER_ERROR'})
         }

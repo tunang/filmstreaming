@@ -1,11 +1,18 @@
 import axios from "axios";
 
+import instance from "./axios/customAxiosNoHeader";
+import { axiosInstance } from "./axios/customAxiosWithHeader";
+
 const loginApi = (email, password) =>{
-    return axios.post("https://reqres.in/api/login", {email, password})
+    return instance.post("/api/auth/login", {email, password})
 }
 
 const registerApi = (email, password) => {
-    return axios.post(("https://reqres.in/api/register", {email, password}));
+    return instance.post(("/api/auth/register", {email, password, firstname, lastname}));
 }
 
-export { loginApi, registerApi }
+const logoutApi = () =>{
+    return axiosInstance.delete("/api/auth/logout")
+}
+
+export { loginApi, registerApi, logoutApi }
